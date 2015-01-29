@@ -9,6 +9,7 @@ class Player
     def scoreboard
        "#{score}".to_i + 1
     end
+    
 end
 
 player1 = Player.new("Derek", 0)
@@ -17,9 +18,18 @@ player2 = Player.new("Hilary", 0)
 moves = ["rock", "paper", "scissors"] 
 
 puts "What do you want to play to the best to?"
-n = gets.chomp
+num = gets.chomp.to_i
+if num.even?
+  puts "Your number must be odd. Try Again."
+  num = gets.chomp.to_i
+else
+  num = gets.chomp.to_i
+end
 
-until player1.score == "#{n}".to_i || player2.score == "#{n}".to_i do
+best_of = num / 2.to_f
+
+
+until player1.score == "#{best_of}".to_f.ceil || player2.score == "#{best_of}".to_f.ceil do
     x = moves.sample
     y = moves.sample
     puts "#{player1.name} chooses: #{x}"
