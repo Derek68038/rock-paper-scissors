@@ -17,12 +17,11 @@ player2 = Player.new("Hilary", 0)
 
 moves = ["rock", "paper", "scissors"] 
 
-puts "What do you want to play to the best to?"
+puts "What number would you like to play to the best of? (number must be odd)?: "
 num = gets.chomp.to_i
-if num.even?
+
+until num.even? == false
   puts "Your number must be odd. Try Again."
-  num = gets.chomp.to_i
-else
   num = gets.chomp.to_i
 end
 
