@@ -1,3 +1,4 @@
+
 # Class: Player
 #
 # Initializes the players names and sets their starting score to zero.
@@ -14,6 +15,10 @@ class Player
     @name = name
     @score = score
   end 
+  
+  def win
+    @score += 1
+  end
   
 end
 
@@ -55,10 +60,10 @@ def game(p1, p2)
     if "#{x}" == "#{y}"
       puts "Tie!"
     elsif "#{x}" == "rock" && "#{y}" == "scissors" || "#{x}" == "paper" && "#{y}" == "rock" || "#{x}" == "scissors" && "#{y}" == "paper"
-      player1.score += 1
+      player1.win
       puts "#{player1.name} wins! The score is #{player1.name} - #{player1.score} #{player2.name} - #{player2.score}"
     else 
-      player2.score += 1
+      player2.win
       puts "#{player2.name} wins! The score is #{player1.name} - #{player1.score} #{player2.name} - #{player2.score}"
     end
   end
@@ -66,3 +71,4 @@ puts "WE HAVE A WINNER!"
 end
 
 game("Derek", "Hilary")
+
