@@ -35,6 +35,9 @@ end
 #
 # State Changes:
 # Sets player1 and player2 to the name's of the players.
+def format
+  puts "-" * 60
+end
 
 def game(p1, p2)
   player1 = Player.new(p1)
@@ -43,32 +46,41 @@ def game(p1, p2)
 
   puts "What number would you like to play to the best of? (number must be odd)?: "
   num = gets.chomp.to_i
+  format
   
   until num.even? == false
     puts "Your number must be odd. Try Again."
     num = gets.chomp.to_i
+    format
   end
   
   best_of = num / 2.to_f
-
+  
   until player1.score == "#{best_of}".to_f.ceil || player2.score == "#{best_of}".to_f.ceil do
     x = moves.sample
     y = moves.sample
     puts "#{player1.name} chooses: #{x}"
     puts "#{player2.name} chooses: #{y}"
-      
+    puts
     if "#{x}" == "#{y}"
       puts "Tie!"
+      format
     elsif "#{x}" == "rock" && "#{y}" == "scissors" || "#{x}" == "paper" && "#{y}" == "rock" || "#{x}" == "scissors" && "#{y}" == "paper"
       player1.win
       puts "#{player1.name} wins! The score is #{player1.name} - #{player1.score} #{player2.name} - #{player2.score}"
+      format
     else 
       player2.win
       puts "#{player2.name} wins! The score is #{player1.name} - #{player1.score} #{player2.name} - #{player2.score}"
+      format
+    end
+    if player1.score == best_of.to_f.ceil
+      puts "#{player1.name} is the WINNER!"
+    elsif player2.score == best_of.to_f.ceil
+      puts "#{player2.name} is the WINNER!"
     end
   end
-puts "WE HAVE A WINNER!"
 end
-
+  
 game("Derek", "Hilary")
 
