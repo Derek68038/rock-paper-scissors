@@ -14,18 +14,22 @@ class Player
   def initialize(name, score=0)
     @name = name
     @score = score
-    @move = ["rock", "paper", "scissors"].sample
+    @move = ["rock", "paper", "scissors"]
   end 
   
   def player1_move
-    @move
+    @move.sample
   end
   
   def player2_move
-    @move
+    @move.sample
+  end
+
+  def player1_win
+    @score += 1
   end
   
-  def win
+  def player2_win
     @score += 1
   end
   
