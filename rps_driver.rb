@@ -1,3 +1,4 @@
+require_relative 'rps_test'
 require_relative 'rps_game'
   
   # Public: #driver
@@ -11,12 +12,12 @@ require_relative 'rps_game'
   #
   # State Changes:
   # Sets @player1 and @player2's names.
-
+  
   def driver
     start = Game.new("Derek", "Hilary")
     start.play_to_n
-    start.game_loop
-    start.winner
+    start.play
   end
- puts driver 
 
+driver
+ 
