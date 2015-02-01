@@ -15,7 +15,7 @@ require_relative 'rps_game'
   
   def driver
     start = Game.new("Derek", "Hilary")
-    start.play_to_n
+    start.play_to_n # couldn't figure out a way to not have to call this in the driver method.
     start.play
   end
 
