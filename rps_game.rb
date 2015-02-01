@@ -43,8 +43,8 @@ class Game
   # Sets @num_of_games to an integer.
   
   def play_to_n
-    #puts "Prepare to battle your opponent! Your weapons: A rock, a piece of paper, and a  pair of scissors. The  rock will crush the scissors, the paper will smother the rock, and the scissors will cut the paper to shreds. The first player to win the following number of games wins the battle. What number would you like to play  to?: "
-    puts "What number would you like to play to?: "
+    puts "Prepare to battle your opponent!\n\nYour weapons: A rock, a piece of paper, and a  pair of scissors.\n\nThe  rock will crush the scissors, the paper will smother the rock, and the scissors will cut the paper to shreds. The first player to win the following number of games wins the battle. What number would you like to play to?: "
+    
     @num_of_games = gets.chomp.to_i
     until @num_of_games > 0 && @num_of_games.class == Fixnum
       puts "Your answer was not recognized, please try again."
