@@ -1,3 +1,4 @@
+require_relative 'rps_rules'
 # Class: Game
 #
 # Runs the entire game by asking the user to what number they want to play to, stating what the player's choices 
@@ -20,7 +21,7 @@
 
 class Game
   
-  attr_accessor :num_of_games, :p1_game_move, :p2_game_move
+  attr_accessor :num_of_games, :p1_game_move, :p2_game_move, #:players_choose
   
   def initialize(player1, player2)
     @player1 = Player.new(player1)
@@ -28,6 +29,9 @@ class Game
     @num_of_games = num_of_games
     @p1_game_move = p1_game_move
     @p2_game_move = p2_game_move
+    # @players_choose = players_choose
+    # @rules = Rules.new
+    
   end
   
   # Public: #play_to_n
