@@ -1,5 +1,6 @@
 require_relative 'rps_test'
 require_relative 'rps_game'
+require_relative 'rps_rules'
   
   # Public: #driver
   # Creates the player's names, determines how many games they play to, starts the game loop, & states the winner.
