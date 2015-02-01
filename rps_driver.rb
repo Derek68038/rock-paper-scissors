@@ -1,15 +1,10 @@
-require_relative 'rps_test'
 require_relative 'rps_game'
-
-class Driver
   
-  def lets_play
-    return Game.play_game("Derek", "Hilary")
-    return Game.nth_game
-    return Game.best_of
-    return Game.winner
+  def driver
+    start = Game.new("Derek", "Hilary")
+    start.play_to_n
+    start.game_loop
+    start.winner
   end
-  
-end
+ puts driver 
 
-new_game = Driver.new
