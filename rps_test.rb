@@ -87,7 +87,7 @@ class Player
   def p2_win
     @score += 1
   end
-
+  
 end
 
 
