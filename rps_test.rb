@@ -24,18 +24,66 @@ class Player
     @move = ["rock", "paper", "scissors"]
   end 
   
+  # Public: #p1_moves
+  # Selects player one's move.
+  #
+  # Parameters:
+  # None.
+  #
+  # Returns:
+  # A random move out of the move array.
+  #
+  # State Changes:
+  # None.
+  
   def p1_moves
     @move.sample
   end
+  
+  # Public: #p2_moves
+  # Selects player two's move.
+  #
+  # Parameters:
+  # None.
+  #
+  # Returns:
+  # A random move out of the move array.
+  #
+  # State Changes:
+  # None.
   
   def p2_moves
     @move.sample
   end
   
+  # Public: #p1_win
+  # Increases player one's score by one after a win.
+  #
+  # Parameters:
+  # None.
+  #
+  # Returns:
+  # Score after adding one to itself.
+  #
+  # State Changes:
+  # Increases score by one.
+  
   def p1_win
     @score += 1
   end
-
+  
+  # Public: #p2_win
+  # Increases player two's score by one after a win.
+  #
+  # Parameters:
+  # None.
+  #
+  # Returns:
+  # Score after adding one to itself.
+  #
+  # State Changes:
+  # Increases score by one.
+  
   def p2_win
     @score += 1
   end
