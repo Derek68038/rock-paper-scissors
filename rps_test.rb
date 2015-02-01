@@ -1,11 +1,18 @@
-#require 'pry'
 # Class: Player
 #
-# Initializes the players names and sets their starting score to zero.
+# Gets our player's names, set their scores to zero, provides the
+# player's moves, and increases their score after a win.
 #
 # Attributes:
 # @name   - String: the player's name.
 # @score  - Integer: Sets initial score to zero.
+# @move   - Array: an array of possible game moves.
+#
+# Public Methods:
+# #p1_moves
+# #p2_moves
+# #p1_win
+# #p2_win
 
 class Player 
   
@@ -17,36 +24,23 @@ class Player
     @move = ["rock", "paper", "scissors"]
   end 
   
-  def player1_move
+  def p1_moves
     @move.sample
   end
   
-  def player2_move
+  def p2_moves
     @move.sample
+  end
+  
+  def p1_win
+    @score += 1
   end
 
-  def player1_win
+  def p2_win
     @score += 1
   end
-  
-  def player2_win
-    @score += 1
-  end
-  
+
 end
 
-# Public: #game
-# Takes two arguments which create new Player objects.
-# Stores all the possible moves in an array.
-# Asks user the number of games they would like to play to the best of, which must be odd.
-# Sets each player's choice to a random element in the moves array.
-# Using a loop, it determines which player won each round, outputs the player's score 
-# total, and ends when a player has won the required number of games.
-#
-# Return:
-# String: Showing each round won, which lists each players moves and point totals.
-#
-# State Changes:
-# Sets player1 and player2 to the name's of the players.
-#binding.pry
+
 
