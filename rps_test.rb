@@ -1,3 +1,4 @@
+require_relative 'rps_rules'
 # Class: Player
 #
 # Gets our player's names, set their scores to zero, provides the
