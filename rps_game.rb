@@ -153,6 +153,7 @@ class Game
   def format
     puts "-" * 60
   end
+
 end
 end
 
