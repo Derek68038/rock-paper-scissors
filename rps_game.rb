@@ -1,5 +1,3 @@
-require_relative 'rps_test'
-
 # Class: Game
 #
 # Runs the entire game by asking the user to what number they want to play to, stating what the player's choices 
@@ -45,6 +43,7 @@ class Game
   # Sets @num_of_games to an integer.
   
   def play_to_n
+    #puts "Prepare to battle your opponent! Your weapons: A rock, a piece of paper, and a  pair of scissors. The  rock will crush the scissors, the paper will smother the rock, and the scissors will cut the paper to shreds. The first player to win the following number of games wins the battle. What number would you like to play  to?: "
     puts "What number would you like to play to?: "
     @num_of_games = gets.chomp.to_i
     until @num_of_games > 0 && @num_of_games.class == Fixnum
@@ -70,7 +69,7 @@ class Game
     @p2_game_move = @player2.p2_moves
     puts "#{@player1.name} chooses: #{@p1_game_move}\n" + "#{@player2.name} chooses: #{@p2_game_move}"
   end
-  
+
   # Public: #determine_winner
   # Determines which player won based on each round's moves.
   #
@@ -92,13 +91,13 @@ class Game
       @player1.p1_win
       puts "#{@player1.name} wins!\n" "The score is:  #{@player1.name} - #{@player1.score}\t #{@player2.name} - #{@player2.score}"
       format
-    else 
+    else
       @player2.p2_win
       puts "#{@player2.name} wins!\n" "The score is:  #{@player1.name} - #{@player1.score}\t #{@player2.name} - #{@player2.score}"
       format
     end
   end
-  
+
   # Public: #game_loop
   # Continues the game each round until a player has won the stated number of games.
   #
@@ -114,11 +113,12 @@ class Game
   def game_loop
     until @player1.score >= @num_of_games || @player2.score >= @num_of_games do
       determine_winner
+      #@rules.determine_winner
     end
   end
   
-  # Public: #winner
-  # Prints who the winner is once the game is over.
+  # Public: #play
+  # Initiates the game loop and prints who the winner is once the game is over.
   #
   # Parameters:
   # None.
@@ -129,7 +129,8 @@ class Game
   # State Changes:
   # None.
   
-  def winner 
+  def play 
+    game_loop
     if @player1.score >= @num_of_games
       puts "#{@player1.name} is the WINNER!"
     elsif @player2.score >= @num_of_games
