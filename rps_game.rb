@@ -21,7 +21,7 @@ require_relative 'rps_rules'
 
 class Game
   
-  attr_accessor :num_of_games, :p1_game_move, :p2_game_move, #:players_choose
+  attr_accessor :num_of_games, :p1_game_move, :p2_game_move, :players_choose
   
   def initialize(player1, player2)
     @player1 = Player.new(player1)
@@ -29,8 +29,8 @@ class Game
     @num_of_games = num_of_games
     @p1_game_move = p1_game_move
     @p2_game_move = p2_game_move
-    # @players_choose = players_choose
-    # @rules = Rules.new
+    @players_choose = players_choose
+    @rules = Rules.new
     
   end
   
@@ -86,21 +86,21 @@ class Game
   # State Changes:
   # None.
     
-  def determine_winner
-    players_choose
-    if @p1_game_move == @p2_game_move
-      puts "Tie!"
-      format
-    elsif @p1_game_move == "rock" && @p2_game_move == "scissors" || @p1_game_move == "paper" && @p2_game_move == "rock" || @p1_game_move == "scissors" && @p2_game_move == "paper"
-      @player1.p1_win
-      puts "#{@player1.name} wins!\n" "The score is:  #{@player1.name} - #{@player1.score}\t #{@player2.name} - #{@player2.score}"
-      format
-    else
-      @player2.p2_win
-      puts "#{@player2.name} wins!\n" "The score is:  #{@player1.name} - #{@player1.score}\t #{@player2.name} - #{@player2.score}"
-      format
-    end
-  end
+  # def determine_winner
+  #   players_choose
+  #   if @p1_game_move == @p2_game_move
+  #     puts "Tie!"
+  #     format
+  #   elsif @p1_game_move == "rock" && @p2_game_move == "scissors" || @p1_game_move == "paper" && @p2_game_move == "rock" || @p1_game_move == "scissors" && @p2_game_move == "paper"
+  #     @player1.p1_win
+  #     puts "#{@player1.name} wins!\n" "The score is:  #{@player1.name} - #{@player1.score}\t #{@player2.name} - #{@player2.score}"
+  #     format
+  #   else
+  #     @player2.p2_win
+  #     puts "#{@player2.name} wins!\n" "The score is:  #{@player1.name} - #{@player1.score}\t #{@player2.name} - #{@player2.score}"
+  #     format
+  #   end
+  # end
 
   # Public: #game_loop
   # Continues the game each round until a player has won the stated number of games.
@@ -116,8 +116,8 @@ class Game
   
   def game_loop
     until @player1.score >= @num_of_games || @player2.score >= @num_of_games do
-      determine_winner
-      #@rules.determine_winner
+      #determine_winner
+      @rules.determine_winner
     end
   end
   
