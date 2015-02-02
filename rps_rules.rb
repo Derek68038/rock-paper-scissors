@@ -1,8 +1,9 @@
 
 require_relative 'rps_game'
+require_relative 'rps_test'
 
 class Rules
- 
+  
   def determine_winner
     @players_choose
     if @p1_game_move == @p2_game_move
